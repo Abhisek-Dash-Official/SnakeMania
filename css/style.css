@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+body {
+    overscroll-behavior: none;
+    margin: 0;
+    padding: 0;
+    background: url('/img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+/* Brand name styling */
+#brandname {
+    position: absolute;
+    top: 50px;
+    left: 5rem;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3.3rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    background: linear-gradient(180deg, #0d3415, #145c24);
+    color: #e0c97f;
+    padding: 8px 4px;
+    text-shadow: 0 0 5px rgba(224, 201, 127, 0.6),
+        0 0 15px rgba(224, 201, 127, 0.4);
+    border: 2px solid #2a5b2f;
+    z-index: 3;
+}
+
+
+/* Snake logo styling */
+#snake-logo {
+    width: 300px;
+    position: absolute;
+    bottom: 40px;
+    right: 40px;
+    z-index: 2;
+    filter: drop-shadow(2px 4px 6px rgba(0, 0, 0, 0.4));
+}
+
+/* Snake Game Grid */
+#grid {
+    margin-top: 20px;
+    margin-right: 8rem;
+    /* background: linear-gradient(145deg, #9be15d, #00e3ae); */
+    background: rgba(34, 139, 34, 0.15);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    display: grid;
+    grid-template-rows: repeat(20, 1fr);
+    grid-template-columns: repeat(20, 1fr);
+    height: 90vmin;
+    width: 90vmin;
+    border-radius: 12px;
+}
+
+/* Scoreboard Styling */
+#scoreboard {
+    position: absolute;
+    top: 25px;
+    right: 40px;
+    background: rgba(34, 139, 34, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    padding: 20px;
+    width: 280px;
+    color: #f0fff0c7;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Scoreboard Headings */
+#scoreboard div {
+    margin-bottom: 12px;
+    padding: 8px;
+    background: linear-gradient(90deg, rgba(144, 238, 144, 0.15), rgba(0, 128, 0, 0.15));
+    border-radius: 8px;
+}
+
+/* Labels and Inputs */
+#scoreboard label {
+    font-weight: bold;
+    color: #98fb98;
+    /* PaleGreen */
+}
+
+#scoreboard input,
+#scoreboard select {
+    width: 100%;
+    padding: 6px;
+    border: none;
+    border-radius: 6px;
+    margin-top: 5px;
+    font-size: 14px;
+    outline: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #f0fff0c7;
+}
+
+#scoreboard input::placeholder {
+    color: #d0ffd0;
+}
+
+/* Hover and Focus effects */
+#scoreboard input:focus,
+#scoreboard select:focus {
+    box-shadow: 0 0 8px #90ee90;
+}
+
+/* High Score Highlight */
+#highscore {
+    background: linear-gradient(90deg, rgba(0, 255, 127, 0.25), rgba(0, 100, 0, 0.25));
+    font-weight: bold;
+    border: 1px solid rgba(0, 255, 127, 0.3);
+}
+
+
+
+/* === SNAKE HEAD === */
+.snakeHead,
+.snakeBody {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.snakeHead {
+    position: relative;
+    background-color: #a6ce39;
+    border-radius: 50% 50% 40% 40%;
+}
+
+/* Eyes */
+.snakeHead::before,
+.snakeHead::after {
+    content: '';
+    position: absolute;
+    top: 30%;
+    width: 5px;
+    height: 5px;
+    background: #333;
+    border-radius: 50%;
+}
+
+.snakeHead::before {
+    left: 25%;
+}
+
+.snakeHead::after {
+    right: 25%;
+}
+
+.tongue {
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 25px;
+    background: red;
+    clip-path: polygon(45% 0%, 55% 0%, 55% 60%, 65% 75%, 50% 65%, 35% 75%, 45% 60%, 45% 0%);
+}
+
+/*  SNAKE BODY  */
+.snakeBody {
+    background: linear-gradient(135deg, #bbe741, #a6ce39);
+    border-radius: 13px;
+    box-shadow: 0 0 6px rgba(141, 240, 138, 0.5);
+}
+
+
+/* SNAKE FOOD */
+.food {
+    position: relative;
+    margin-top: 3px;
+    width: 90%;
+    height: 90%;
+    background: radial-gradient(circle at 30% 30%, #ff4d4d, #cc0000);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.6);
+}
+
+.food::before {
+    /* stem */
+    content: "";
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 4px;
+    height: 10px;
+    background: #3b2f2f;
+    border-radius: 2px;
+}
+
+.food::after {
+    /* leaf */
+    content: "";
+    position: absolute;
+    top: -2px;
+    left: 70%;
+    transform: translate(-50%, -50%) rotate(-30deg);
+    width: 14px;
+    height: 6px;
+    background: #4CAF50;
+    border-radius: 50%;
+}
+
+
+
+/* Common button styling */
+button {
+    width: 100%;
+    padding: 10px 15px;
+    margin-top: 8px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #4caf50, #2e7d32);
+    color: #f0fff0;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effect */
+button:hover {
+    background: linear-gradient(135deg, #66bb6a, #388e3c);
+    transform: translateY(-2px);
+}
+
+/* Active button style */
+.btnActive {
+    background: linear-gradient(135deg, #ff5722, #e64a19);
+    color: #fff;
+    box-shadow: 0 0 12px #ff5722, 0 0 20px #ff8a50;
+    transform: scale(1.05);
+}

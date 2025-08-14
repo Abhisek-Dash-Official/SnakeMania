@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280">
+    <meta name="description"
+        content="SnakeMania – A thrilling classic snake game with a modern twist. Challenge yourself, grow your snake, and set high scores in this addictive desktop game.">
+    <meta name="keywords"
+        content="SnakeMania, snake game, classic snake, desktop snake game, snake mania online, snake arcade, play snake, HTML snake game">
+    <meta name="author" content="Abhisek Dash">
+    <title>SnakeMania</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" href="/img/favicon.png" type="image/x-icon">
+</head>
+
+<body>
+    <div id="brandname">SnakeMania</div>
+    <img id="snake-logo" src="/img/favicon.png" alt=" ">
+    <div id="grid">
+
+    </div>
+    <div id="scoreboard">
+        <div id="currentScore">Current Score: 0</div>
+        <div id="currentPlayerDiv">
+            Current Player: Player
+        </div>
+        <div id="players">
+            <label for="currentPlayerSelection">Select Player:</label>
+            <select id="currentPlayerSelection">
+                <option value="Player">Player</option>
+            </select>
+        </div>
+        <div id="highscoreDiv">High Score 0 done by Player</div>
+        <div id="addPlayer">
+            <label for="addPlayerInput">Add Player:</label>
+            <input id="addPlayerInput" type="text">
+        </div>
+        <div><button id="startPlayBtn">Play</button><button id="stopPlayBtn">Stop</button></div>
+    </div>
+    <script src="js/index.js"></script>
+    <script src="js/playerManager.js"></script>
+</body>
+
+</html>
