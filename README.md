@@ -1,4 +1,4 @@
-# SnakeMania 🎮
+# SnakeMania (PRECOLLEGE REPO)
 
 **SnakeMania** is a modern twist on the classic snake game, built for desktop browsers. Grow your snake, avoid collisions, and set high scores! This game is designed for fun, competitive play with multiple players and persistent local scores.
 
